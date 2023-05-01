@@ -1,0 +1,17 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="posts">
+    {% if posts %}
+      {% for post in posts %}
+      <div class="post-entry">
+        <h2 class=""><a href="{% url 'post_detail' post.pk %}" class="post-entry-title">{{ post.title }}</a></h2>
+        <p class="post-entry-body_text">Автор: {{ post.author }}</p>
+      </div>
+      {% endfor %}
+    {% else %}
+    <a class="error-text">Постів немає</a>
+    {% endif %}
+  </div>
+{% endblock content %}

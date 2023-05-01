@@ -1,0 +1,139 @@
+.detailed_post{
+    display: grid;
+    grid-template-columns: 700px 400px;
+    justify-content: center;
+    grid-gap: 40px;
+    height: 700px;
+}
+
+.detailed_post-comment{
+    display: grid;
+    line-break: anywhere;
+    height: auto;
+    grid-template-rows: 50px 80% auto;
+    border: 1px solid #999;
+    overflow-x: hidden;
+}
+
+.detailed_post-comment__title{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.detailed_post-comment__comments{
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.detailed_post-comment__input-btn{
+    transition: 0.3s;
+    height: 100%;
+    padding: 0;
+    border: none;
+    border-left: 1px solid #999;
+}
+
+.detailed_post-comment__input-btn:hover{
+    transition: 0.1s;
+    background-color: rgb(223, 223, 223);
+    cursor: pointer;
+}
+
+.detailed_post-comment__input-btn-img{
+    width: 30px;
+    height: 30px;
+}
+
+.detailed_post-comment__input-text{
+    height: 89px;
+    width: auto;
+    resize: none;
+    border: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.detailed_post-comment__input{
+    display: grid;
+    grid-template-columns: 89% auto;
+    height: 100%;
+    margin: 0;
+}
+
+.detailed_post-post{
+    display: grid;
+    grid-template-rows: 50px auto;
+}
+
+.detailed_post-post__title{
+    border: 1px solid #999;
+    padding-left: 10px;
+    overflow-y: auto;
+}
+
+h2{
+    margin: 0px;
+    padding-top: 5px;
+}
+
+.detailed_post-post__body{
+    margin-top: 10px;
+    border: 1px solid #999;
+    line-break: anywhere;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.detailed_post-comment__comments-element{
+    display: grid;
+    grid-template-rows: auto auto;
+    margin-block-end: 25px;
+}
+
+.detailed_post-comment__comments__up{
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.detailed_post-comment__comments__down{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-top: 5px;
+}
+
+.detailed_post-comment__comments__down-delete{
+    position: inherit;
+    bottom: 10px;
+    width: 20px;
+    align-self: end;
+    text-align: center
+}
+
+.detailed_post-comment__comments__down-delete_btn{
+    transition: 0.3s;
+    width: 20px;
+    height: 28px;
+    padding: 0;
+    border: 0;
+}
+
+.detailed_post-comment__comments__down-delete_btn:hover{
+    transition: 0.3s;
+    background-color: rgb(223, 223, 223);
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.detailed_post-comment__comments__down-delete_btn-img{
+    width: 16px;
+    height: 24px;
+}
+
+.detailed_post-comment__comments__down-body{
+    line-break: auto;
+}

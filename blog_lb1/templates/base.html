@@ -1,0 +1,27 @@
+<!-- templates/base.html -->
+{% load static %}
+<html>
+  <head>
+    <title>Django blog</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/detail-post.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><a href="{% url 'home' %}" class="header-logo">Django blog</a></h1>
+      <div class="title">
+        {{ title }}
+      </div>
+      <div class="login">
+        {% if request.user.is_authenticated %}
+          <a href="{% url 'usr-exit' %}">Вітаємо, {{ request.user.username }}. Натисніть, щоб вийти</a>
+        {% else %}
+          <a href="{% url 'usr-login' %}">Авторизуватись</a>
+        {% endif %}
+      </div>
+    </header>
+      {% block content %}
+      {% endblock content %}
+  </body>
+</html>

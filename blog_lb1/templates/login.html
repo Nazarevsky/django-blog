@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="login-usr">
+  <form method="post" class="login-usr_form">
+    {% csrf_token %}
+    <input class="input" name="username" type="text" placeholder="Логін">
+    <input class="input" name="password" type="password" placeholder="Пароль">
+    <button class="btn" type="submit" text="Увійти">Увійти</button>
+    <a class="error-text">{{ error }}</a>
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,66 @@
+<!-- templates/post_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="detailed_post">
+    <div class="detailed_post-post">
+      <div class="detailed_post-post__title">
+        <h2>{{ post.title }}</h2>
+      </div>
+      <div class="detailed_post-post__body">
+        {{ post.body|safe }}
+      </div>
+    </div>
+    <div class="detailed_post-comment">
+      <div class="detailed_post-comment__title">
+        Коментарі
+      </div>
+      <div class="detailed_post-comment__comments">
+        {% if comments %}
+          {% for comment in comments %}
+            <div class="detailed_post-comment__comments-element">
+              <div class="detailed_post-comment__comments__up">
+                <div class="detailed_post-comment__comments__up-author">
+                  {{ comment.author }}
+                </div>
+                <div class="detailed_post-comment__comments__up-date">
+                  {{ comment.timestamp }}
+                </div>
+              </div>
+              <div class="detailed_post-comment__comments__down">
+                <div class="detailed_post-comment__comments__down-body">
+                  {{ comment.body|safe  }}
+                </div>
+                {% if user == comment.author %}
+                  <form class="detailed_post-comment__comments__down-delete" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{ comment.id }}">
+                    <input type="submit" class="detailed_post-comment__comments__down-delete_btn" name="comment_del" value="🗑️">
+                    </input>
+                  </form>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+            Коментарів немає
+        {% endif %}
+      </div>
+      {% if user.is_authenticated %}
+        <form class="detailed_post-comment__input" method="post">
+          {% csrf_token %}
+          <textarea maxlength="250" cols="5" rows="10" name="comment"
+          class="detailed_post-comment__input-text" placeholder="Напишіть тут коментар"></textarea>
+          <input type="submit" class="detailed_post-comment__input-btn" name="send_comment" value="➤"></input>
+        </form>
+      {% else %}
+        Авторизуйтесь, щоб писати коментарі
+      {% endif %}
+    </div>
+  </div>
+  <script>
+    const container = document.querySelector('.detailed_post-comment__comments');
+    container.scrollTop = container.scrollHeight - container.clientHeight;
+  </script>
+{% endblock content %}
+
